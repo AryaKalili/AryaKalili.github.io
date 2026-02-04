@@ -11,7 +11,6 @@
     .navbar-brand { font-weight: bold; }
     .product-card { transition: box-shadow .2s; }
     .product-card:hover { box-shadow: 0 8px 32px rgba(99,102,241,0.15); }
-    .cart-badge { position: absolute; top: 0; right: 0; }
     .section-title { font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; }
     .price { color: #6366f1; font-weight: 600; }
     .modal-lg { max-width: 700px; }
@@ -39,12 +38,6 @@
           <li class="nav-item"><a class="nav-link" href="#products">Produk</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Project Saya</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
-          <li class="nav-item position-relative">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
-              <i class="fas fa-shopping-cart"></i>
-              <span class="badge bg-danger cart-badge" id="cart-count">0</span>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
@@ -64,7 +57,6 @@
               <p class="card-text small flex-grow-1">Website untuk penelitian, organisasi, atau prototype sistem. Desain modern, responsif, dan sesuai kebutuhan Anda.</p>
               <div class="price mb-2 fs-5">Rp. 5.000.000 ++</div>
               <button class="btn btn-primary w-100 mb-2" onclick="showDetail(0)"><i class="fas fa-info-circle me-1"></i>Detail</button>
-              <button class="btn btn-outline-success w-100" onclick="addToCart(0)"><i class="fas fa-cart-plus me-1"></i>Tambah ke Keranjang</button>
             </div>
           </div>
         </div>
@@ -77,7 +69,6 @@
               <p class="card-text small flex-grow-1">Bantuan penulisan skripsi untuk mahasiswa, harga per bab. Dapatkan revisi dan konsultasi gratis.</p>
               <div class="price mb-2 fs-5">Rp. 450.000 / Bab</div>
               <button class="btn btn-primary w-100 mb-2" onclick="showDetail(1)"><i class="fas fa-info-circle me-1"></i>Detail</button>
-              <button class="btn btn-outline-success w-100" onclick="addToCart(1)"><i class="fas fa-cart-plus me-1"></i>Tambah ke Keranjang</button>
             </div>
           </div>
         </div>
@@ -90,7 +81,6 @@
               <p class="card-text small flex-grow-1">Paket lengkap penulisan skripsi per bab dan pembuatan website sistem. Konsultasi dan support penuh.</p>
               <div class="price mb-2 fs-5">Rp. 350.000 / Bab + Web Rp. 1.000.000 ++</div>
               <button class="btn btn-primary w-100 mb-2" onclick="showDetail(2)"><i class="fas fa-info-circle me-1"></i>Detail</button>
-              <button class="btn btn-outline-success w-100" onclick="addToCart(2)"><i class="fas fa-cart-plus me-1"></i>Tambah ke Keranjang</button>
             </div>
           </div>
         </div>
@@ -122,42 +112,6 @@
     </div>
   </div>
 
-  <!-- Cart Modal -->
-  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="cartModalLabel"><i class="fas fa-shopping-cart me-2"></i>Keranjang</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="table-responsive">
-            <table class="table align-middle mb-0">
-              <thead>
-                <tr>
-                  <th>Produk</th>
-                  <th>Harga</th>
-                  <th>Jumlah</th>
-                  <th>Total</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="cart-items">
-                <!-- Cart items will be injected here -->
-              </tbody>
-            </table>
-          </div>
-          <div class="d-flex justify-content-end mt-3">
-            <h5>Total: <span id="cart-total">Rp 0</span></h5>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-          <button type="button" class="btn btn-success" onclick="checkout()">Checkout</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Project Section -->
   <section id="projects" class="py-5">
@@ -230,91 +184,20 @@
     </div>
   </section>
 
-  <script>
-    // Product data
-    const products = [
-      {
-        name: 'Project Website',
-        price: 5000000,
-        priceText: 'Rp. 5.000.000 ++',
-        desc: 'Pembuatan website untuk penelitian, organisasi, atau prototype sistem sesuai kebutuhan mahasiswa/instansi (bukan bisnis).',
-        detail: '<ul><li>Desain responsif & modern</li><li>Teknologi sesuai kebutuhan (PHP, MySQL, dsb)</li><li>Dokumentasi & presentasi</li><li>Estimasi harga tergantung kompleksitas</li></ul>'
-      },
-      {
-        name: 'Skripsi (Per Bab)',
-        price: 450000,
-        priceText: 'Rp. 450.000 / Bab',
-        desc: 'Bantuan penulisan skripsi untuk mahasiswa, harga per bab. Cocok untuk penelitian teknologi & informasi.',
-        detail: '<ul><li>Penulisan bab 1-5</li><li>Revisi sesuai kebutuhan</li><li>Format sesuai kampus</li></ul>'
-      },
-      {
-        name: 'Skripsi + Website',
-        price: 1350000,
-        priceText: 'Rp. 350.000 / Bab + Web Rp. 1.000.000 ++',
-        desc: 'Paket lengkap penulisan skripsi per bab dan pembuatan website sistem (prototype/organisasi, bukan bisnis).',
-        detail: '<ul><li>Semua layanan skripsi + website</li><li>Harga website tergantung fitur</li><li>Support konsultasi</li></ul>'
-      }
-    ];
-
-    // Cart logic
-    let cart = [];
-    function addToCart(idx) {
-      const found = cart.find(item => item.idx === idx);
-      if (found) {
-        found.qty++;
-      } else {
-        cart.push({ idx, name: products[idx].name, price: products[idx].price, qty: 1 });
-      }
-      updateCart();
-    }
-    function updateCart() {
-      document.getElementById('cart-count').textContent = cart.reduce((a, b) => a + b.qty, 0);
-      const tbody = document.getElementById('cart-items');
-      if (!tbody) return;
-      if (cart.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="5" class="text-center">Keranjang kosong</td></tr>';
-        document.getElementById('cart-total').textContent = 'Rp 0';
-        return;
-      }
-      let total = 0;
-      tbody.innerHTML = cart.map(item => {
-        const subtotal = item.price * item.qty;
-        total += subtotal;
-        return `<tr>
-          <td>${item.name}</td>
-          <td>Rp ${item.price.toLocaleString('id-ID')}</td>
-          <td><button class='btn btn-sm btn-outline-secondary' onclick='changeQty(${item.idx},-1)'>-</button> ${item.qty} <button class='btn btn-sm btn-outline-secondary' onclick='changeQty(${item.idx},1)'>+</button></td>
-          <td>Rp ${subtotal.toLocaleString('id-ID')}</td>
-          <td><button class='btn btn-sm btn-danger' onclick='removeFromCart(${item.idx})'><i class='fas fa-trash'></i></button></td>
-        </tr>`;
-      }).join('');
-      document.getElementById('cart-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
-    }
-    function changeQty(idx, delta) {
-      const found = cart.find(item => item.idx === idx);
-      if (found) {
-        found.qty += delta;
-        if (found.qty < 1) found.qty = 1;
-        updateCart();
-      }
-    }
-    function removeFromCart(idx) {
-      cart = cart.filter(item => item.idx !== idx);
-      updateCart();
-    }
-    function showDetail(idx) {
-      const p = products[idx];
-      document.getElementById('detailContent').innerHTML = `<h4>${p.name}</h4><div class='mb-2 price'>${p.priceText}</div><p>${p.desc}</p>${p.detail}`;
-      new bootstrap.Modal(document.getElementById('detailModal')).show();
-    }
-    function checkout() {
-      alert('Checkout berhasil! (simulasi)');
-      cart = [];
-      updateCart();
-      bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
-    }
-    document.addEventListener('DOMContentLoaded', updateCart);
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  <script>
+    // Function to show product detail in modal
+    function showDetail(index) {
+      const product = products[index];
+      const detailContent = `
+        <h3 class="text-primary mb-3">${product.name}</h3>
+        <p><strong>Harga:</strong> ${product.priceText}</p>
+        <p>${product.desc}</p>
+        <h5>Detail Layanan:</h5>
+        ${product.detail}
+      `;
+      document.getElementById('detailContent').innerHTML = detailContent;
+      const detailModal = new bootstrap.Modal(document.getElementById('detailModal'));
+      detailModal.show();
+    }
+  </script>
