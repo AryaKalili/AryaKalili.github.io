@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Assets/css/style.css?v=1.0.0" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -51,6 +51,12 @@
             <li class="nav-item">
               <a class="nav-link" href="#contact">Contact</a>
             </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light ms-2" href="ecommerce.html"><i class="fas fa-store me-1"></i>Product</a>
+            </li>
+            <li class="nav-item">
+              <!-- Keranjang dihapus sesuai permintaan -->
+            </li>
           </ul>
         </div>
       </div>
@@ -63,7 +69,7 @@
           <div class="col-lg-6 order-lg-2 text-center mb-4 mb-lg-0">
             <div class="hero-image-wrapper">
               <img
-                src="profile.png"
+                src="Assets/img/profile.png"
                 alt="Professional portrait photo with clean background and confident smile"
                 class="img-fluid rounded-circle hero-image"
               />
@@ -237,12 +243,12 @@
         </div>
 
         <!-- Portfolio Grid -->
-        <div class="row g-4" id="portfolioGrid">
+        <div class="row g-4 justify-content-center" id="portfolioGrid">
           <!-- Project 1 -->
           <div class="col-lg-4 col-md-6 portfolio-item" data-category="web">
             <div class="card portfolio-card h-100 border-0 shadow-sm">
               <img
-                src="image2.png"
+                src="Assets/img/image2.png"
                 alt="E-commerce web application with modern UI shopping cart and product gallery"
                 class="card-img-top"
               />
@@ -260,12 +266,14 @@
                   <span class="badge bg-primary me-1">JavaScript</span>
                   <span class="badge bg-primary">Bootrstap</span>
                 </div>
-                <a
-                  href="http://bima-minyak-kelapa.kesug.com/"
-                  target="_blank"
-                  class="btn btn-sm btn-outline-primary"
-                  >View Project <i class="fas fa-arrow-right ms-1"></i
-                ></a>
+                <div class="d-grid gap-2 d-md-block">
+                  <a
+                    href="http://bima-minyak-kelapa.kesug.com/"
+                    target="_blank"
+                    class="btn btn-sm btn-outline-primary"
+                    >View Project <i class="fas fa-arrow-right ms-1"></i
+                  ></a>
+                </div>
               </div>
             </div>
           </div>
@@ -274,7 +282,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item" data-category="web">
             <div class="card portfolio-card h-100 border-0 shadow-sm">
               <img
-                src="image.png"
+                src="Assets/img/image.png"
                 alt="Fitness tracking mobile app interface with workout statistics and progress charts"
                 class="card-img-top"
               />
@@ -290,42 +298,14 @@
                   <span class="badge bg-primary me-1">JavaScript</span>
                   <span class="badge bg-primary">Bootstrap</span>
                 </div>
-                <a
-                  href="https://laut-biru.com/"
-                  target="_blank"
-                  class="btn btn-sm btn-outline-primary"
-                  >View Project <i class="fas fa-arrow-right ms-1"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="col-lg-4 col-md-6 portfolio-item" data-category="web">
-            <div class="card portfolio-card h-100 border-0 shadow-sm">
-              <img
-                src="https://placehold.co/600x400?text=Modern+dashboard+UI+design+with+data+visualization+charts+and+clean+interface"
-                alt="Modern dashboard UI design with data visualization charts and clean interface"
-                class="card-img-top"
-              />
-              <div class="card-body">
-                <h5 class="card-title fw-bold">Klinik Muslimah</h5>
-                <p class="card-text text-muted">
-                  Website Klinik Muslimah Merupakan Platform Medis Untuk
-                  Perawatan Bagi Wanita-Wanita Muslim
-                </p>
-                <div class="mb-3">
-                  <span class="badge bg-primary me-1">HTML/CSS</span>
-                  <span class="badge bg-primary me-1">JavaScript</span>
-                  <span class="badge bg-primary me-1">PHP</span>
-                  <span class="badge bg-primary">Bootstap</span>
+                <div class="d-grid gap-2 d-md-block">
+                  <a
+                    href="https://laut-biru.com/"
+                    target="_blank"
+                    class="btn btn-sm btn-outline-primary"
+                    >View Project <i class="fas fa-arrow-right ms-1"></i
+                  ></a>
                 </div>
-                <a
-                  href="https://klinik-muslimah.great-site.net"
-                  target="_blank"
-                  class="btn btn-sm btn-outline-primary"
-                  >View Project <i class="fas fa-arrow-right ms-1"></i
-                ></a>
               </div>
             </div>
           </div>
@@ -334,7 +314,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="py-5 bg-light">
+    <section id="resume">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center mb-5">
@@ -362,57 +342,58 @@
                   <p class="card-text">
                     Fokus di web development dan manajemen database.
                     <br />
-                    IPK : 3.44
+                    IPK : 3.44 Karena Disengaja
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Experience -->
           <div class="col-lg-6 mb-4">
             <h3 class="h4 fw-bold mb-4">
               <i class="fas fa-briefcase text-primary me-2"></i>Pengalaman
             </h3>
-
             <div class="timeline-item mb-4">
               <div class="card border-start border-primary border-4 shadow-sm">
                 <div class="card-body">
-                  <div class="text-center">
-                    Belum Memiliki Pengalaman Profesional Di Bidang Manapun
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="timeline-item mb-4">
-              <div class="card border-start border-primary border-4 shadow-sm">
-                <div class="card-body">
-                  <span class="badge bg-primary mb-2">2019 - 2020</span>
-                  <h5 class="card-title fw-bold">Web Developer Intern</h5>
-                  <h6 class="text-muted mb-2">Company Name</h6>
+                  <span class="badge bg-primary mb-2">2022 - Sekarang</span>
+                  <h5 class="card-title fw-bold">Freelance Web Developer</h5>
+                  <h6 class="text-muted mb-2"></h6>
                   <ul class="card-text mb-0">
-                    <li>Assisted in building and maintaining websites</li>
-                    <li>Learned best practices in web development</li>
-                    <li>Participated in team meetings and project planning</li>
+                    <li>
+                      Mengembangkan website menggunakan HTML, CSS, JavaScript,
+                      PHP, dan MySQL.
+                    </li>
+                    <li>
+                      Merancang antarmuka pengguna (UI) yang responsif dan mudah
+                      digunakan.
+                    </li>
+                    <li>
+                      Mengelola database sederhana dan melakukan pemeliharaan
+                      website.
+                    </li>
+                    <li>Menyesuaikan fitur berdasarkan kebutuhan klien.</li>
                   </ul>
                 </div>
               </div>
-            </div> -->
+            </div>
           </div>
         </div>
 
-        <!-- Download CV Button -->
         <div class="row mt-4">
           <div class="col-12 text-center">
-            <a href="#" class="btn btn-primary btn-lg"
-              ><i class="fas fa-download me-2"></i>Download Full CV</a
+            <a
+              href="CV_ARYA KALILI.pdf"
+              target="_blank"
+              class="btn btn-primary btn-lg"
+            >
+              <i class="fas fa-download me-2"></i>Download Full CV</a
             >
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-5">
       <div class="container">
         <div class="row">
@@ -439,7 +420,7 @@
                   <i class="fas fa-phone fa-2x text-primary"></i>
                 </div>
                 <h5 class="fw-bold mb-2">Phone</h5>
-                <p class="text-muted mb-0">+62 853 9500 1862</p>
+                <p class="text-muted mb-0">+62-815-4321-8530</p>
               </div>
 
               <div class="contact-item p-4 bg-light rounded shadow-sm">
@@ -576,6 +557,6 @@
       });
     </script>
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="Assets/js/script.js?v=1.0.0"></script>
   </body>
 </html>

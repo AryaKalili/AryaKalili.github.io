@@ -95,6 +95,7 @@ filterButtons.forEach((button) => {
 });
 
 // Animate progress bars on scroll
+
 const animateProgressBars = () => {
   const progressBars = document.querySelectorAll(".progress-bar");
 
