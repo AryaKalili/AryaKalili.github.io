@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Teknologi & Informasi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+    .navbar-brand { font-weight: bold; }
+    .product-card { transition: box-shadow .2s; }
+    .product-card:hover { box-shadow: 0 8px 32px rgba(99,102,241,0.15); }
+    .cart-badge { position: absolute; top: 0; right: 0; }
+    .section-title { font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; }
+    .price { color: #6366f1; font-weight: 600; }
+    .modal-lg { max-width: 700px; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+    <!-- Hero Section -->
+    <section class="py-5 bg-primary text-white text-center" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+      <div class="container py-5">
+        <h1 class="display-4 fw-bold mb-3">Solusi Teknologi & Informasi untuk Mahasiswa & Organisasi</h1>
+        <p class="lead mb-4">Dapatkan layanan pembuatan website, penulisan skripsi, dan konsultasi sistem dengan harga terjangkau dan profesional.<br>Spesialisasi untuk penelitian, prototype, dan organisasi (bukan bisnis).</p>
+        <a href="#products" class="btn btn-light btn-lg px-4 shadow-sm"><i class="fas fa-shopping-bag me-2"></i>Lihat Produk & Layanan</a>
+      </div>
+    </section>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container d-flex align-items-center">
+      <a class="btn btn-outline-light me-3" href="index.html"><i class="fas fa-arrow-left me-1"></i>Kembali</a>
+      <a class="navbar-brand me-auto" href="#">TechInfo Store</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#products">Produk</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Project Saya</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="badge bg-danger cart-badge" id="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Section -->
+  <section id="products" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title text-center mb-4">Produk & Layanan Unggulan</h2>
+      <div class="row g-4 justify-content-center">
+        <!-- Product 1 -->
+        <div class="col-md-4">
+          <div class="card product-card h-100 shadow border-0">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Project Website" style="height:180px;object-fit:cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary">Project Website</h5>
+              <p class="card-text small flex-grow-1">Website untuk penelitian, organisasi, atau prototype sistem. Desain modern, responsif, dan sesuai kebutuhan Anda.</p>
+              <div class="price mb-2 fs-5">Rp. 5.000.000 ++</div>
+              <button class="btn btn-primary w-100 mb-2" onclick="showDetail(0)"><i class="fas fa-info-circle me-1"></i>Detail</button>
+              <button class="btn btn-outline-success w-100" onclick="addToCart(0)"><i class="fas fa-cart-plus me-1"></i>Tambah ke Keranjang</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="col-md-4">
+          <div class="card product-card h-100 shadow border-0">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Skripsi" style="height:180px;object-fit:cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary">Skripsi (Per Bab)</h5>
+              <p class="card-text small flex-grow-1">Bantuan penulisan skripsi untuk mahasiswa, harga per bab. Dapatkan revisi dan konsultasi gratis.</p>
+              <div class="price mb-2 fs-5">Rp. 450.000 / Bab</div>
+              <button class="btn btn-primary w-100 mb-2" onclick="showDetail(1)"><i class="fas fa-info-circle me-1"></i>Detail</button>
+              <button class="btn btn-outline-success w-100" onclick="addToCart(1)"><i class="fas fa-cart-plus me-1"></i>Tambah ke Keranjang</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="col-md-4">
+          <div class="card product-card h-100 shadow border-0">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Skripsi + Website" style="height:180px;object-fit:cover;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title text-primary">Skripsi + Website</h5>
+              <p class="card-text small flex-grow-1">Paket lengkap penulisan skripsi per bab dan pembuatan website sistem. Konsultasi dan support penuh.</p>
+              <div class="price mb-2 fs-5">Rp. 350.000 / Bab + Web Rp. 1.000.000 ++</div>
+              <button class="btn btn-primary w-100 mb-2" onclick="showDetail(2)"><i class="fas fa-info-circle me-1"></i>Detail</button>
+              <button class="btn btn-outline-success w-100" onclick="addToCart(2)"><i class="fas fa-cart-plus me-1"></i>Tambah ke Keranjang</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-lg-10 mx-auto">
+          <div class="alert alert-success shadow-sm text-center fs-5">
+            <i class="fas fa-star text-warning me-2"></i>
+            <b>Kenapa memilih layanan kami?</b> <br>
+            <span class="d-block mt-2">✔️ Proses cepat & profesional &nbsp; ✔️ Konsultasi gratis &nbsp; ✔️ Harga transparan &nbsp; ✔️ Support revisi &nbsp; ✔️ Spesialisasi penelitian & organisasi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail Product Modal -->
+  <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailModalLabel">Detail Produk</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="detailContent">
+          <!-- Detail content will be injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel"><i class="fas fa-shopping-cart me-2"></i>Keranjang</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>Produk</th>
+                  <th>Harga</th>
+                  <th>Jumlah</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cart-items">
+                <!-- Cart items will be injected here -->
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-end mt-3">
+            <h5>Total: <span id="cart-total">Rp 0</span></h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-success" onclick="checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Section -->
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center">Project yang Sudah Saya Buat</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="Assets/img/image2.png" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Penjualan Minyak Kelapa Mandar</h5>
+              <p class="card-text">Website penjualan minyak khas daerah berbasis PHP Native, HTML/CSS, MySQL, dan Bootstrap.</p>
+              <a href="http://bima-minyak-kelapa.kesug.com/" target="_blank" class="btn btn-outline-primary btn-sm">Lihat Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="Assets/img/image.png" class="card-img-top" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Laut Biru</h5>
+              <p class="card-text">Website volunteer dan pelestarian laut, berbasis HTML/CSS, MySQL, JavaScript, dan Bootstrap.</p>
+              <a href="https://laut-biru.com/" target="_blank" class="btn btn-outline-primary btn-sm">Lihat Project</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card border-0 shadow-lg text-center bg-gradient" style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #fff; min-height: 260px; display: flex; align-items: center; justify-content: center;">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center py-5">
+              <i class="fas fa-plus-circle fa-3x mb-3" style="color: #000;"></i>
+              <h2 class="card-title mb-3 fw-bold text-dark" style="font-size:2.2rem;">Dan masih banyak lagi</h2>
+              <p class="card-text fs-4 text-dark" style="max-width:700px;line-height:1.5;">
+                Banyak project menarik lainnya yang telah kami kerjakan sesuai kebutuhan klien.<br>
+                <span class="badge bg-warning text-dark mt-3 fs-5">Custom &amp; Spesial</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title text-center">Kontak</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item d-flex align-items-center">
+                  <i class="fas fa-phone fa-lg text-primary me-3"></i>
+                  <span>+62 853 9500 1862</span>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                  <i class="fas fa-envelope fa-lg text-primary me-3"></i>
+                  <span>aryakalili221@gmail.com</span>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                  <i class="fas fa-map-marker-alt fa-lg text-primary me-3"></i>
+                  <span>Enrekang, Sulawesi Selatan</span>
+                </li>
+              </ul>
+              <div class="alert alert-info mb-0"><i class="fas fa-info-circle me-2"></i>Silakan hubungi kontak di atas untuk konsultasi atau pemesanan layanan.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Product data
+    const products = [
+      {
+        name: 'Project Website',
+        price: 5000000,
+        priceText: 'Rp. 5.000.000 ++',
+        desc: 'Pembuatan website untuk penelitian, organisasi, atau prototype sistem sesuai kebutuhan mahasiswa/instansi (bukan bisnis).',
+        detail: '<ul><li>Desain responsif & modern</li><li>Teknologi sesuai kebutuhan (PHP, MySQL, dsb)</li><li>Dokumentasi & presentasi</li><li>Estimasi harga tergantung kompleksitas</li></ul>'
+      },
+      {
+        name: 'Skripsi (Per Bab)',
+        price: 450000,
+        priceText: 'Rp. 450.000 / Bab',
+        desc: 'Bantuan penulisan skripsi untuk mahasiswa, harga per bab. Cocok untuk penelitian teknologi & informasi.',
+        detail: '<ul><li>Penulisan bab 1-5</li><li>Revisi sesuai kebutuhan</li><li>Format sesuai kampus</li></ul>'
+      },
+      {
+        name: 'Skripsi + Website',
+        price: 1350000,
+        priceText: 'Rp. 350.000 / Bab + Web Rp. 1.000.000 ++',
+        desc: 'Paket lengkap penulisan skripsi per bab dan pembuatan website sistem (prototype/organisasi, bukan bisnis).',
+        detail: '<ul><li>Semua layanan skripsi + website</li><li>Harga website tergantung fitur</li><li>Support konsultasi</li></ul>'
+      }
+    ];
+
+    // Cart logic
+    let cart = [];
+    function addToCart(idx) {
+      const found = cart.find(item => item.idx === idx);
+      if (found) {
+        found.qty++;
+      } else {
+        cart.push({ idx, name: products[idx].name, price: products[idx].price, qty: 1 });
+      }
+      updateCart();
+    }
+    function updateCart() {
+      document.getElementById('cart-count').textContent = cart.reduce((a, b) => a + b.qty, 0);
+      const tbody = document.getElementById('cart-items');
+      if (!tbody) return;
+      if (cart.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center">Keranjang kosong</td></tr>';
+        document.getElementById('cart-total').textContent = 'Rp 0';
+        return;
+      }
+      let total = 0;
+      tbody.innerHTML = cart.map(item => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        return `<tr>
+          <td>${item.name}</td>
+          <td>Rp ${item.price.toLocaleString('id-ID')}</td>
+          <td><button class='btn btn-sm btn-outline-secondary' onclick='changeQty(${item.idx},-1)'>-</button> ${item.qty} <button class='btn btn-sm btn-outline-secondary' onclick='changeQty(${item.idx},1)'>+</button></td>
+          <td>Rp ${subtotal.toLocaleString('id-ID')}</td>
+          <td><button class='btn btn-sm btn-danger' onclick='removeFromCart(${item.idx})'><i class='fas fa-trash'></i></button></td>
+        </tr>`;
+      }).join('');
+      document.getElementById('cart-total').textContent = 'Rp ' + total.toLocaleString('id-ID');
+    }
+    function changeQty(idx, delta) {
+      const found = cart.find(item => item.idx === idx);
+      if (found) {
+        found.qty += delta;
+        if (found.qty < 1) found.qty = 1;
+        updateCart();
+      }
+    }
+    function removeFromCart(idx) {
+      cart = cart.filter(item => item.idx !== idx);
+      updateCart();
+    }
+    function showDetail(idx) {
+      const p = products[idx];
+      document.getElementById('detailContent').innerHTML = `<h4>${p.name}</h4><div class='mb-2 price'>${p.priceText}</div><p>${p.desc}</p>${p.detail}`;
+      new bootstrap.Modal(document.getElementById('detailModal')).show();
+    }
+    function checkout() {
+      alert('Checkout berhasil! (simulasi)');
+      cart = [];
+      updateCart();
+      bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
+    }
+    document.addEventListener('DOMContentLoaded', updateCart);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
