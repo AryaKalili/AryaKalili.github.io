@@ -499,6 +499,17 @@
               &copy; 2025 ARYA NUGRAHA KALILI. All rights reserved.
             </p>
           </div>
+          <div class="visitor-counter">
+    <p>Pengunjung: <span id="visits">Loading...</span></p>
+</div>
+
+<script>
+    function websiteVisits(response) {
+        document.querySelector("#visits").textContent = response.value;
+    }
+</script>
+
+<script async src="https://api.countapi.xyz/hit/aryakalili.github.io/visits?callback=websiteVisits"></script>
           <div class="col-md-6 text-center text-md-end">
             <a
               href="https://www.instagram.com/aryakalili_/"
